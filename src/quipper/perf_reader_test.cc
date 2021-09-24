@@ -1619,11 +1619,11 @@ TEST(PerfReaderTest, ReadsAndWritesMmap2Events) {
       .tid = 0x68d,
       .start = 0x1d000,
       .len = 0x1000,
-      .pgoff = 0x2000,
-      .prot = 1 | 2,  // == PROT_READ | PROT_WRITE
-      .flags = 2,     // == MAP_PRIVATE
-                      // .filename = ..., // written separately
   };
+  written_mmap_event.pgoff = 0x2000;
+  written_mmap_event.prot = 1 | 2;  // == PROT_READ | PROT_WRITE
+  written_mmap_event.flags = 2;     // == MAP_PRIVATE
+                      // .filename = ..., // written separately
   const char mmap_filename[10 + 6] = "/dev/zero";
   const size_t pre_mmap_offset = input.tellp();
   // Compilers handle unnamed union/struct initializers differently.
